@@ -26,7 +26,15 @@
                                     <div class="col-lg-6 bg-primary content-left">
                                         <div class="p-3">
                                             <h2 class="mb-2 text-white">Sign In</h2>
+
+                                            @if($errors->any())
+                                                <div class="invalid-feedback">
+                                                    {{ implode('', $errors->all(':message')) }}
+                                                </div>
+                                            @endif
+
                                             <p>Login to stay connected.</p>
+
                                             <form action="{{route('login')}}" method="POST">
 
                                                 @csrf
@@ -34,13 +42,13 @@
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <div class="floating-label form-group">
-                                                            <input class="floating-input form-control" name="email" type="email" placeholder=" ">
+                                                            <input class="floating-input form-control" name="email" type="email" value="{{ old('email') }}" placeholder=" ">
                                                             <label>Email</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
                                                         <div class="floating-label form-group">
-                                                            <input class="floating-input form-control" name="password" type="password" placeholder=" ">
+                                                            <input class="floating-input form-control" name="password" type="password" value="{{ old('password') }}" placeholder=" ">
                                                             <label>Password</label>
                                                         </div>
                                                     </div>
