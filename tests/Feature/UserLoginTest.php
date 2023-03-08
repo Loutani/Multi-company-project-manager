@@ -12,7 +12,6 @@ use Tests\TestCase;
 class UserLoginTest extends TestCase
 {
     use RefreshDatabase;
-    use DatabaseMigrations;
 
     /**
      * user should see login view page

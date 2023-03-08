@@ -10,7 +10,6 @@ use Tests\TestCase;
 class ForgetPasswordTest extends TestCase
 {
     use RefreshDatabase;
-    use DatabaseMigrations;
 
     /**
      * if the user click on forget password then should redirect to forget password form

@@ -9,7 +9,6 @@ use Tests\TestCase;
 class ExampleTest extends TestCase
 {
     use RefreshDatabase;
-    use DatabaseMigrations;
 
     /**
      * A basic test example.

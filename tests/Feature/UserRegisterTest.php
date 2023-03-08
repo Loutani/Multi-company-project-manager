@@ -10,7 +10,6 @@ use Tests\TestCase;
 
 class UserRegisterTest extends TestCase
 {
-    use DatabaseMigrations;
     use RefreshDatabase;
 
     /**
