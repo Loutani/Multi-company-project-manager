@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
@@ -33,7 +34,7 @@ class UserRegisterTest extends TestCase
             'password_confirmation' => 'mohammed1234',
         ];
 
-        $response = $this->call('POST', 'register', $registerData);
+        $response = $this->call('POST', '/register', $registerData);
 
         $response->assertStatus(302);
     }
