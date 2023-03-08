@@ -17,8 +17,6 @@ class UserLoginTest extends TestCase
     {
         $response = $this->withViewErrors([])->view('auth.login');
 
-        $response->assertStatus(200);
-
         $response->assertSee('Sign In');
     }
 }
