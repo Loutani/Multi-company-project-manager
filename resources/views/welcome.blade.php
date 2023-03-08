@@ -7,14 +7,11 @@
     <title>Template</title>
 
     <link rel="shortcut icon" href="{{asset('template/images/favicon.ico')}}" />
+
     <link rel="stylesheet" href="{{asset('template/css/backend-plugin.min.css')}}">
     <link rel="stylesheet" href="{{asset('template/css/backend.css?v=1.0.0')}}">
     <link rel="stylesheet" href="{{asset('template/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('template/vendor/remixicon/fonts/remixicon.css')}}">
-
-    <link rel="stylesheet" href="{{asset('template/vendor/tui-calendar/tui-calendar/dist/tui-calendar.css')}}">
-    <link rel="stylesheet" href="{{asset('template/vendor/tui-calendar/tui-date-picker/dist/tui-date-picker.css')}}">
-    <link rel="stylesheet" href="{{asset('template/vendor/tui-calendar/tui-time-picker/dist/tui-time-picker.css')}}">
 
 </head>
 <body>
@@ -330,11 +327,6 @@
     </footer>
 
     <script src="{{asset('template/js/backend-bundle.min.js')}}"></script>
-    <script src="{{asset('template/js/table-treeview.js')}}"></script>
-    <script src="{{asset('template/js/customizer.js')}}"></script>
-    <script async src="{{asset('template/js/chart-custom.js')}}"></script>
-    <script async src="{{asset('template/js/slider.js')}}"></script>
     <script src="{{asset('template/js/app.js')}}"></script>
-    <script src="{{asset('template/vendor/moment.min.js')}}"></script>
 </body>
 </html>
