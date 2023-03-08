@@ -36,4 +36,38 @@ class UserLoginTest extends TestCase
 
         $response->assertStatus(302);
     }
+
+    /**
+     * if the user enter wrong email and correct password then should get error message
+     */
+    public function test_user_enter_wrong_email_and_correct_password()
+    {
+        $registerData = [
+            'email' => 'mohammed2023@company-dz.com',
+            'password' => 'mohammed1234'
+        ];
+
+        $response = $this->call('POST', 'login', $registerData);
+
+        $response->assertStatus(302);
+
+        $response->assertSessionHasErrors(['email' => 'These credentials do not match our records.']);
+    }
+
+    /**
+     * if the user enter wrong password and correct email then should get error message
+     */
+    public function test_user_enter_wrong_password_and_correct_email()
+    {
+        $registerData = [
+            'email' => 'mohammed@company-dz.com',
+            'password' => 'mohammed1234dsqdqs'
+        ];
+
+        $response = $this->call('POST', 'login', $registerData);
+
+        $response->assertStatus(302);
+
+        $response->assertSessionHasErrors(['email' => 'These credentials do not match our records.']);
+    }
 }
