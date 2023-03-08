@@ -27,12 +27,22 @@
                                     <div class="col-lg-6 bg-primary content-left">
                                         <div class="p-3">
                                             <h2 class="mb-2 text-white">Reset Password</h2>
+
+                                            @error('email')
+                                                <div class="invalid-feedback">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror
+
                                             <p>Enter your email address and we'll send you an email with instructions to reset your password.</p>
                                             <form method="POST" action="{{ route('password.email') }}">
+
+                                                @csrf
+
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <div class="floating-label form-group">
-                                                            <input class="floating-input form-control" type="email" placeholder=" ">
+                                                            <input class="floating-input form-control" name="email" type="email" placeholder=" ">
                                                             <label>Email</label>
                                                         </div>
                                                     </div>
