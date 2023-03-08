@@ -2,6 +2,8 @@
 
 namespace Tests\Feature;
 
+use App\Models\User;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -69,5 +71,15 @@ class UserLoginTest extends TestCase
         $response->assertStatus(302);
 
         $response->assertSessionHasErrors(['email' => 'These credentials do not match our records.']);
+    }
+
+    /**
+     * if user loggedand try logged again should redirect to home
+     */
+    public function test_user_logged_before_but_try_to_login_again()
+    {
+        $user = User::factory()->create();
+
+        $this->actingAs($user)->get('login')->assertRedirect(RouteServiceProvider::HOME);
     }
 }
