@@ -34,7 +34,7 @@ class UserRegisterTest extends TestCase
             'password_confirmation' => 'mohammed1234',
         ];
 
-        $response = $this->call('POST', 'register', $registerData);
+        $response = $this->call('POST', '/register', $registerData);
 
         $response->assertStatus(302);
     }

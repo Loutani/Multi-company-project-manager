@@ -30,6 +30,10 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: php artisan migrate --force
+    - name: Install NPM dependencies
+      run: npm install
+    - name: Minify CSS and JS files
+      run: npm run build
     - name: Run unit tests via PHPUnit
       env:
         DB_CONNECTION: sqlite
