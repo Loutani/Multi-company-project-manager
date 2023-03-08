@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="{{asset('template/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('template/vendor/remixicon/fonts/remixicon.css')}}">
 
+    @stack('styles')
+
 </head>
 <body>
 
@@ -33,5 +35,7 @@
     <script src="{{asset('template/js/backend-bundle.min.js')}}"></script>
     <script src="{{asset('template/js/app.js')}}"></script>
 
+    @stack('scripts')
+    
 </body>
 </html>
