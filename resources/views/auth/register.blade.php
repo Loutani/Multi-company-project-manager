@@ -9,12 +9,6 @@
 
     <link rel="stylesheet" href="{{asset('template/css/backend-plugin.min.css')}}">
     <link rel="stylesheet" href="{{asset('template/css/backend.css?v=1.0.0')}}">
-    <link rel="stylesheet" href="{{asset('template/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset('template/vendor/remixicon/fonts/remixicon.css')}}">
-
-    <link rel="stylesheet" href="{{asset('template/vendor/tui-calendar/tui-calendar/dist/tui-calendar.css')}}">
-    <link rel="stylesheet" href="{{asset('template/vendor/tui-calendar/tui-date-picker/dist/tui-date-picker.css')}}">
-    <link rel="stylesheet" href="{{asset('template/vendor/tui-calendar/tui-time-picker/dist/tui-time-picker.css')}}">
 </head>
 <body class=" ">
 
@@ -32,29 +26,41 @@
                                         <div class="p-3">
                                             <h2 class="mb-2 text-white">Sign Up</h2>
                                             <p>Create your account.</p>
-                                            <form>
+                                            <form action="{{route('register')}}" method="post">
+
+                                                @csrf
+
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <div class="floating-label form-group">
-                                                            <input class="floating-input form-control" type="text" placeholder=" ">
+                                                            <input class="floating-input form-control" name="name" value="{{ old('name') }}" type="text" placeholder=" ">
                                                             <label>User Name</label>
+                                                            @error('name')
+                                                                <div class="invalid-feedback">{{ $message }}</div>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
                                                         <div class="floating-label form-group">
-                                                            <input class="floating-input form-control" type="text" placeholder=" ">
+                                                            <input class="floating-input form-control" name="email" value="{{ old('email') }}" type="text" placeholder=" ">
                                                             <label>Email</label>
+                                                            @error('email')
+                                                                <div class="invalid-feedback">{{ $message }}</div>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
                                                         <div class="floating-label form-group">
-                                                            <input class="floating-input form-control" type="password" placeholder=" ">
+                                                            <input class="floating-input form-control" name="password" value="{{ old('password') }}" type="password" placeholder=" ">
                                                             <label>Password</label>
+                                                            @error('password')
+                                                                <div class="invalid-feedback">{{ $message }}</div>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
                                                         <div class="floating-label form-group">
-                                                            <input class="floating-input form-control" type="password" placeholder=" ">
+                                                            <input class="floating-input form-control" name="password_confirmation" value="{{ old('password') }}" type="password" placeholder=" ">
                                                             <label>Confirm Password</label>
                                                         </div>
                                                     </div>
@@ -79,11 +85,7 @@
     </div>
 
     <script src="{{asset('template/js/backend-bundle.min.js')}}"></script>
-    <script src="{{asset('template/js/table-treeview.js')}}"></script>
     <script src="{{asset('template/js/customizer.js')}}"></script>
-    <script async src="{{asset('template/js/chart-custom.js')}}"></script>
-    <script async src="{{asset('template/js/slider.js')}}"></script>
     <script src="{{asset('template/js/app.js')}}"></script>
-    <script src="{{asset('template/vendor/moment.min.js')}}"></script>
 </body>
 </html>
