@@ -16,7 +16,7 @@ jobs:
       with:
         php-version: '8.1'
     - uses: actions/checkout@v3
-    - name: Copy .env
+    - name: Copy .env.ci
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: composer update
       run: composer update
