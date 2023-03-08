@@ -1,47 +1,64 @@
-@extends('layouts.app')
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Project Manager - reset password</title>
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" />
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+    <link rel="stylesheet" href="{{asset('template/css/backend-plugin.min.css')}}">
+    <link rel="stylesheet" href="{{asset('template/css/backend.css?v=1.0.0')}}">
+    <link rel="stylesheet" href="{{asset('template/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('template/vendor/remixicon/fonts/remixicon.css')}}">
+</head>
+<body class=" ">
 
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
+    @include('partials.loader')
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+    <div class="wrapper">
+        <section class="login-content">
+            <div class="container">
+                <div class="row align-items-center justify-content-center height-self-center">
+                    <div class="col-lg-8">
+                        <div class="card auth-card">
+                            <div class="card-body p-0">
+                                <div class="d-flex align-items-center auth-content">
+                                    <div class="col-lg-6 bg-primary content-left">
+                                        <div class="p-3">
+                                            <h2 class="mb-2 text-white">Reset Password</h2>
+                                            <p>Enter your email address and we'll send you an email with instructions to reset your password.</p>
+                                            <form method="POST" action="{{ route('password.email') }}">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="floating-label form-group">
+                                                            <input class="floating-input form-control" type="email" placeholder=" ">
+                                                            <label>Email</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-white">Reset</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 content-right">
+                                        <img src="{{asset('template/images/login/01.png')}}" class="img-fluid image-right" alt="">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
-</div>
-@endsection
+
+    <script src="{{asset('template/js/backend-bundle.min.js')}}"></script>
+    <script src="{{asset('template/js/table-treeview.js')}}"></script>
+    <script src="{{asset('template/js/customizer.js')}}"></script>
+    <script async src="{{asset('template/js/chart-custom.js')}}"></script>
+    <script async src="{{asset('template/js/slider.js')}}"></script>
+    <script src="{{asset('template/js/app.js')}}"></script>
+    <script src="{{asset('template/vendor/moment.min.js')}}"></script>
+</body>
+</html>
