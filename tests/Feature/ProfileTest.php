@@ -22,4 +22,9 @@ class ProfileTest extends TestCase
         
         $this->actingAs($user)->get('/profile')->assertStatus(200);
     }
+
+    public function test_only_logged_in_user_can_see_profile_page()
+    {
+        $this->get('/profile')->assertRedirect('/login');
+    }
 }
