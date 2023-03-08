@@ -43,12 +43,12 @@
                             <a href="#" class="search-toggle dropdown-toggle  d-flex align-items-center" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img src="{{asset('template/images/user/1.jpg')}}" class="img-fluid rounded-circle" alt="user">
                                 <div class="caption ml-3">
-                                    <h6 class="mb-0 line-height">Savannah Nguyen<i class="las la-angle-down ml-2"></i></h6>
+                                    <h6 class="mb-0 line-height">{{Auth::user()->name}}<i class="las la-angle-down ml-2"></i></h6>
                                 </div>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-right border-none" aria-labelledby="dropdownMenuButton">
                                 <li class="dropdown-item d-flex svg-icon">
-                                    <a href="../app/user-profile.html">Savannah Company</a>
+                                    <a href="../app/user-profile.html">{{Auth::user()->name}} Company</a>
                                 </li>
 
                                 <li class="dropdown-item d-flex svg-icon border-top">
@@ -74,7 +74,10 @@
                                     <svg class="svg-icon mr-0 text-primary" id="h-05-p" width="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                                     </svg>
-                                    <a href="../backend/auth-sign-in.html">Logout</a>
+                                    <form action="{{route('logout')}}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn-as-link">Logout</button>
+                                    </form>
                                 </li>
                             </ul>
                         </li>
