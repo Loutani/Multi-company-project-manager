@@ -17,7 +17,11 @@
                             </div>
 
                             <div class="card-body">
-                                <form>
+                                <form action="{{route('profile.update')}}">
+
+                                    @method('PUT')
+                                    @csrf
+                                    
                                     <div class=" row align-items-center">
 
                                         <input type="hidden" name="" value="{{$userId}}">
