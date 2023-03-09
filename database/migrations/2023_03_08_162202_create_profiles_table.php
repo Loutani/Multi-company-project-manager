@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('phone')->nullable()->default('default phone number');
             $table->string('job')->nullable()->default('default job');
             $table->longText('bio')->nullable()->default('default bio');
-            $table->dateTime('birthdate')->nullable();
+            $table->dateTime('birthdate')->nullable()->default('2023-03-08 17:52:11');
             $table->timestamps();
         });
     }

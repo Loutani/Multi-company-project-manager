@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,10 +13,28 @@ class ProfileController extends Controller
     /**
      * show the user profile
      */
-    public function show()
+    public function show(Profile $id)
     {
-        $user = User::find(Auth::user()->id)->with('profile')->get()->first();
+        return View('profile.index', ['profile' => $id]);
+    }
 
-        return View('profile.index', compact('user'));
+    public function edit(Profile $id)
+    {
+        return View('profile.edit', ['profile' => $id]);
+    }
+
+    public function update(Request $request)
+    {
+        $profile = Profile::find($request->id);
+
+        $profile->address = $request->address;
+        $profile->phone = $request->phone;
+        $profile->birthdate = $request->birthdate;
+        $profile->bio = $request->bio;
+        $profile->job = $request->job;
+
+        $profile->save();
+
+        return redirect()->back();
     }
 }

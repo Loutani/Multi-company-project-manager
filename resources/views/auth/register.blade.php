@@ -67,7 +67,7 @@
                                                 </div>
                                                 <button type="submit" class="btn btn-white">Sign Up</button>
                                                 <p class="mt-3">
-                                                    Already have an Account <a href="#" class="text-white text-underline">Sign In</a>
+                                                    Already have an Account <a href="{{route('login')}}" class="text-white text-underline">Sign In</a>
                                                 </p>
                                             </form>
                                         </div>

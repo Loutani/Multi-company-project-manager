@@ -21,6 +21,8 @@ class Profile extends Authenticatable
         'address',
         'phone',
         'birthdate',
+        'bio',
+        'job',
     ];
 
     /**
@@ -29,7 +31,7 @@ class Profile extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'birthdate' => 'datetime',
+        'birthdate' => 'date',
     ];
 
     public function user()
