@@ -17,23 +17,23 @@
                             </div>
 
                             <div class="card-body">
-                                <form action="{{route('profile.update')}}">
+                                <form action="{{route('profile.update')}}" method="post">
 
                                     @method('PUT')
                                     @csrf
-                                    
+
                                     <div class=" row align-items-center">
 
-                                        <input type="hidden" name="" value="{{$userId}}">
+                                        <input type="hidden" name="id" value="{{$profile->id}}">
 
                                         <div class="form-group col-sm-6">
                                             <label for="address">Address:</label>
-                                            <input type="text" class="form-control" id="address" value="{{$profile->address}}">
+                                            <input type="text" class="form-control" name="address" id="address" value="{{$profile->address}}">
                                         </div>
 
                                         <div class="form-group col-sm-6">
                                             <label for="job">Job:</label>
-                                            <input type="text" class="form-control" id="job" value="{{$profile->job}}">
+                                            <input type="text" class="form-control" name="job" id="job" value="{{$profile->job}}">
                                         </div>
 
                                         <div class="form-group col-sm-6">
@@ -43,12 +43,12 @@
 
                                         <div class="form-group col-sm-6">
                                             <label for="phone">Phone:</label>
-                                            <input type="text" class="form-control" id="phone" value="{{$profile->phone}}">
+                                            <input type="text" class="form-control" name="phone" id="phone" value="{{$profile->phone}}">
                                         </div>
 
                                         <div class="form-group col-sm-6">
                                             <label for="birthdate">Date Of Birth:</label>
-                                            <input class="form-control" id="birthdate" value="{{$profile->birthdate->format('d-m-Y')}}">
+                                            <input class="form-control" id="birthdate" name="birthdate" value="{{$profile->birthdate->format('d-m-Y')}}">
                                         </div>
 
                                     </div>

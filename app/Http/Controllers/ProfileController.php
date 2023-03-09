@@ -20,10 +20,7 @@ class ProfileController extends Controller
 
     public function edit(Profile $id)
     {
-        $userId = Auth()->user()->id;
-        $profile = $id;
-
-        return View('profile.edit', compact('profile', 'userId'));
+        return View('profile.edit', ['profile' => $id]);
     }
 
     public function update(Request $request)
@@ -37,7 +34,7 @@ class ProfileController extends Controller
         $profile->job = $request->job;
 
         $profile->save();
-        
+
         return redirect()->back();
     }
 }
