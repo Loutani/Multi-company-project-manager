@@ -13,11 +13,9 @@ class ProfileController extends Controller
     /**
      * show the user profile
      */
-    public function show()
+    public function show(Profile $id)
     {
-        $user = User::find(Auth::user()->id)->with('profile')->get()->first();
-
-        return View('profile.index', compact('user'));
+        return View('profile.index', ['profile' => $id]);
     }
 
     public function edit(Profile $id)
@@ -26,5 +24,20 @@ class ProfileController extends Controller
         $profile = $id;
 
         return View('profile.edit', compact('profile', 'userId'));
+    }
+
+    public function update(Request $request)
+    {
+        $profile = Profile::find($request->id);
+
+        $profile->address = $request->address;
+        $profile->phone = $request->phone;
+        $profile->birthdate = $request->birthdate;
+        $profile->bio = $request->bio;
+        $profile->job = $request->job;
+
+        $profile->save();
+        
+        return redirect()->back();
     }
 }
