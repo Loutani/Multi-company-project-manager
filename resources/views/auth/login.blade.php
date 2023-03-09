@@ -64,7 +64,7 @@
                                                 </div>
                                                 <button type="submit" class="btn btn-white">Sign In</button>
                                                 <p class="mt-3">
-                                                    Create an Account <a href="auth-sign-up.html" class="text-white text-underline">Sign Up</a>
+                                                    Create an Account <a href="{{route('register')}}" class="text-white text-underline">Sign Up</a>
                                                 </p>
                                             </form>
                                         </div>
