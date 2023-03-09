@@ -29,7 +29,7 @@ class Profile extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'birthdate' => 'datetime',
+        'birthdate' => 'date',
     ];
 
     public function user()
