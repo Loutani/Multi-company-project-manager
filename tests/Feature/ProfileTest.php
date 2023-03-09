@@ -27,4 +27,11 @@ class ProfileTest extends TestCase
     {
         $this->get('/profile')->assertRedirect('/login');
     }
+
+    public function test_user_can_see_edit_view()
+    {
+        $user = User::factory()->create();
+
+        $this->actingAs($user)->get('/profile/' . $user->id . '/edit')->assertStatus(200);
+    }
 }
