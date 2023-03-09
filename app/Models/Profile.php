@@ -21,6 +21,8 @@ class Profile extends Authenticatable
         'address',
         'phone',
         'birthdate',
+        'bio',
+        'job',
     ];
 
     /**
