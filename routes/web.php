@@ -32,4 +32,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 |
 */
 
-Route::middleware(['auth'])->get('/profile', [ProfileController::class, 'show'])->name('profile');
+Route::middleware(['auth'])->group(function() {
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
+    Route::get('/profile/{id}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+});
